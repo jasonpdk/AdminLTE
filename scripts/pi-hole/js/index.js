@@ -691,6 +691,18 @@ function updateTopClientsChart() {
     });
 }
 
+function getSpeedTest() {
+  $.getJSON("getSpeeds.php", function(data) {
+    var speedtesttable = $('#speedtest').find("tbody:last");
+
+    data.forEach(function(element) {
+      speedtesttable.append("<tr><td>" + element.ping.toFixed(2) + " ms</td><td>" + element.download + " Mb/s</td><td>" + element.upload + " Mb/s</td><td>" + element.server + "</td><td>" + element.server_distance + " km</td><td>" + element.start_time + "</td><td><a target=\"_blank\" href=\"" + element.image_url + "\">Image</a></td></tr>");
+    });
+
+    $("#speedtest .overlay").hide();
+  });
+}
+
 function updateTopLists() {
     $.getJSON("api.php?summaryRaw&topItems", function(data) {
 
@@ -800,6 +812,7 @@ function updateSummaryData(runOnce) {
             updateQueryTypesOverTime();
             updateTopClientsChart();
             updateTopLists();
+            getSpeedTest();
         }
 
         ["ads_blocked_today", "dns_queries_today", "ads_percentage_today", "unique_clients"].forEach(function(today) {
@@ -859,6 +872,7 @@ $(document).ready(function() {
     // Pull in data via AJAX
 
     updateSummaryData();
+    getSpeedTest();
 
     var ctx = document.getElementById("queryOverTimeChart").getContext("2d");
     timeLineChart = new Chart(ctx, {
