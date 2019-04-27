@@ -347,6 +347,44 @@ else
     <!-- /.col -->
 </div>
 <!-- /.row -->
+
+
+<div class="row">
+    <!-- /.col -->
+    <div class="<?php echo $tablelayout; ?>">
+      <div class="box" id="speedtest">
+        <div class="box-header with-border">
+          <h3 class="box-title">Speedtest Results</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                    <th>Ping</th>
+                    <th>Download</th>
+                    <th>Upload</th>
+                    <th>Server</th>
+                    <th>Distance</th>
+                    <th>Start Time</th>
+                    <th>Image</th>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="overlay">
+          <i class="fa fa-refresh fa-spin"></i>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+
 <?php } ?>
 
 <script src="scripts/pi-hole/js/index.js"></script>
